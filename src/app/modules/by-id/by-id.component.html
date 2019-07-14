@@ -1,0 +1,14 @@
+<a class="btn btn-outline-warning btn-sm" [routerLink]="[ '/']">
+  <i class="fas fa-chevron-left"></i>
+</a>
+<div class="jumbotron mt-1" *ngIf="one">
+  <h6 class="text-center text-primary">{{ one.title | titlecase }}</h6>
+  <p class="text-justify">{{ one.body }}</p>
+</div>
+<div *ngIf="error" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <strong>Hubo un error</strong> {{ error }}
+  </div>

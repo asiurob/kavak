@@ -1,0 +1,20 @@
+<a class="btn btn-outline-warning btn-sm" [routerLink]="[ '/']">
+  <i class="fas fa-chevron-left"></i>
+</a>
+<input type="text" class="form-control form-control-sm mt-1" 
+placeholder="Busca registros por título o por contenido" #input [value]="look">
+<button class="btn btn-sm btn-primary mt-1" (click)="search( input.value )">Buscar</button>
+<hr>
+<h6>
+  <small *ngIf="lot" class="font-italic text-secondary">Registros: <b>{{ lot.length }}</b></small>
+</h6>
+<div class="row" *ngIf="lot">
+  <div class="col-sm-4" *ngFor="let data of lot">
+    <div class="shadow shadow-sm p-3 mt-4">
+      <h6 class="text-center text-primary pointer" (click)="showDetail( data.id )">
+        {{ data.title | titlecase }}
+      </h6>
+      <p class="text-justify">{{ data.body }}</p>
+    </div>
+  </div>
+</div>
